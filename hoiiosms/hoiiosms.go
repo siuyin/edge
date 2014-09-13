@@ -31,11 +31,11 @@ func main() {
 		msg, _ := socket.Recv(0)
 		fmt.Println("Received ", msg)
 		json.Unmarshal([]byte(msg), sms)
+		v.Add("dest", sms.Dest)
+		v.Add("msg", sms.Msg)
+		str := hoiioURL + "?" + v.Encode()
+		fmt.Println(str)
 	}
-	v.Add("dest", sms.Dest)
-	v.Add("msg", sms.Msg)
-	str := hoiioURL + "?" + v.Encode()
-	fmt.Println(str)
 	/*
 		res, err := http.Get(str)
 		if err != nil {
