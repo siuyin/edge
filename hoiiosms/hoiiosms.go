@@ -14,7 +14,7 @@ func main() {
 		Dest string `json:"dest"`
 		Msg  string `json:"msg"`
 	}
-	socket, _ := zmq.NewSocket(zmq.REP)
+	socket, _ := zmq.NewSocket(zmq.PULL)
 	defer socket.Close()
 	endpoint := "ipc:///var/www/socks/sms.ipc"
 	socket.Bind(endpoint)
@@ -28,7 +28,7 @@ func main() {
 	fmt.Println("Starting hoiiosms")
 	sms := new(SMS)
 	for {
-		msg, _ = socket.Recv(0)
+		msg, _ := socket.Recv(0)
 		fmt.Println("Received ", msg)
 		json.Unmarshal([]byte(msg), sms)
 	}
