@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	zmq "github.com/pebbe/zmq4"
-	"net/http"
+	_ "net/http"
 	"net/url"
 	"os"
 )
