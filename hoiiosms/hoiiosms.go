@@ -35,12 +35,10 @@ func main() {
 		v.Add("msg", sms.Msg)
 		str := hoiioURL + "?" + v.Encode()
 		fmt.Println(str)
-	}
-	/*
 		res, err := http.Get(str)
 		if err != nil {
 			fmt.Println("get error:", err)
 		}
 		fmt.Println(res)
-	*/
+	}
 }
